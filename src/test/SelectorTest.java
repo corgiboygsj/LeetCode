@@ -5,7 +5,7 @@ import java.nio.channels.*;
 import java.util.Iterator;
 import java.util.Set;
 
-public class Test {
+public class SelectorTest {
     public static void main(String[] args) throws Exception{
         //初始化选择器
         Selector selector = Selector.open();
