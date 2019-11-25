@@ -19,7 +19,7 @@ import java.util.Stack;
  * 输出: [1,3,2]
  */
 public class Question94 {
-    public static class TreeNode {
+    private static class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
