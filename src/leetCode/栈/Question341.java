@@ -37,6 +37,11 @@ public class Question341 {
     public class NestedIterator implements Iterator<Integer> {
         private Iterator<Integer> iterator;
 
+        /**
+         * 因为不确定嵌套有多深，所以需要采用递归或者栈来处理。
+         * 首先其中每个元素都是一个NestedInteger，这个可能是个list也可能是一个integer，而且要保证数字顺序，所以将list反序列push进栈。
+         * 之后对每一个栈中元素处理，如果是integer就记录，否则就重复步骤2继续保持顺序，直到栈空为止。
+         */
         public NestedIterator(List<NestedInteger> nestedList) {
             List<Integer> list = new ArrayList<>();
             Stack<NestedInteger> stack = new Stack<>();

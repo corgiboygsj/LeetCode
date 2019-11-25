@@ -29,6 +29,11 @@ public class Question144 {
         }
     }
 
+    /**
+     * 前序遍历，中左右顺序。
+     * 所以直接先输出根结点，因为栈后进先出，所以按右左顺序入栈子节点。
+     * 之后循环出栈，每个出栈节点都相当于根结点，重复步骤2
+     */
     public List<Integer> preOrderTraversal(TreeNode root) {
         List<Integer> result = new ArrayList<>();
         if(root == null){

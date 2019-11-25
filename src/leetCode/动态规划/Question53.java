@@ -15,6 +15,7 @@ public class Question53 {
         int max = arr[0];
         int temp = max;
 
+        //思路：记录前面连续的最大值，但是如果最大值的值小于0了，那么向后加值肯定小于0+后面的值，所以如果当前最大值小于0就将最大值设置为后续值。
         for(int i = 1; i < arr.length; i++){
             if(temp > 0){
                 temp += arr[i];

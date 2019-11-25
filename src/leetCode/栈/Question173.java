@@ -24,7 +24,7 @@ public class Question173 {
     }
 
     /**
-     * 思路：每次要返回下一个最小的数，就是相当于按照从小到大的顺序遍历二叉树，也就是中序遍历。
+     * 思路：每次要返回下一个最小的数，就是相当于按照从小到大的顺序遍历二叉树，也就是中序遍历，题解见Question94。
      */
     public static class BSTIterator {
         private Stack<TreeNode> stack = new Stack<>();
