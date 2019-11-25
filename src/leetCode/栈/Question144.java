@@ -51,10 +51,6 @@ public class Question144 {
 
         return result;
     }
-
-    public static void main(String[] args) {
-
-    }
 }
 
 
