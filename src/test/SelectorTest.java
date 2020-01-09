@@ -17,10 +17,7 @@ public class SelectorTest {
         serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
         serverSocketChannel.register(selector, SelectionKey.OP_CONNECT);
 
-        while(true){
-            if(selector.select() < 0){
-                continue;
-            }
+        while(selector.select() > 0){
             Set<SelectionKey> selectionKeys = selector.selectedKeys();
             Iterator<SelectionKey> iterable = selectionKeys.iterator();
             while(iterable.hasNext()){

@@ -6,8 +6,6 @@ import java.util.concurrent.locks.ReentrantLock;
  * 两个线程交叉打印
  */
 public class CrossPrint {
-    private static Integer num = 0;
-
     public static void main(String[] args) {
         final Object lock = CrossPrint.class;
 
@@ -16,7 +14,7 @@ public class CrossPrint {
                 synchronized (lock){
                     try {
                         lock.wait();
-                        System.out.println("t1" + ++num);
+                        System.out.println("t1");
                         lock.notify();
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -31,7 +29,7 @@ public class CrossPrint {
                     try {
                         lock.notify();
                         lock.wait();
-                        System.out.println("t2" + ++num);
+                        System.out.println("t2");
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
