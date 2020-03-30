@@ -80,8 +80,18 @@ public class RedBlackTree {
     }
 
     /**
-     * 调整结构
-     * @param node
+     * 调整结构，变化规则如下
+     * 1、父亲为红色、叔叔为红色
+     *      父亲和叔叔黑，祖父变红，将祖父作为新节点进行插入的判断。
+     * 2、父亲为红色、叔叔为黑色
+     *      （1）父亲是左孩子，新节点为左孩子：以父亲为转动点，进行一次右旋
+     *      （2）父亲是左孩子，新节点为右孩子：以新节点为转动点进行一次左旋，再以新节点为转动点进行一次右旋
+     *      （3）父亲是右孩子，新节点为左孩子：以新节点为转动点进行一次右旋，再以新节点为转动点进行一次左旋
+     *      （4）父亲是右孩子，新节点为右孩子：以父亲为转动点，进行一次左旋
+     * 3、父亲为黑色
+     *      直接插入，不需要变换
+     *
+     * 每次要将root重新设置成黑色
      */
     private void restructuring(Node node){
         //父节点如果是黑色不需要调整
@@ -100,23 +110,23 @@ public class RedBlackTree {
             if(node.fatherIsLeftChild() && node.isLeftChild()){
                 node.getGrandFather().setRed();
                 node.getFather().setBlack();
-                rightSpin(node);
+                rightSpin(node.getFather());
             } else if(node.fatherIsLeftChild() && !node.isLeftChild()){
                 Node father = node.getFather();
                 leftSpin(node);
                 father.getGrandFather().setRed();
                 father.getFather().setBlack();
-                rightSpin(father);
+                rightSpin(node);
             } else if(!node.fatherIsLeftChild() && node.isLeftChild()){
                 Node father = node.getFather();
                 rightSpin(node);
                 father.getGrandFather().setRed();
                 father.getFather().setBlack();
-                leftSpin(father);
+                leftSpin(node);
             } else if(!node.fatherIsLeftChild() && !node.isLeftChild()){
                 node.getGrandFather().setRed();
                 node.getFather().setBlack();
-                leftSpin(node);
+                leftSpin(node.getFather());
             }
         }
     }
@@ -124,45 +134,46 @@ public class RedBlackTree {
     private void leftSpin(Node node){
         Node grandFather = node.getGrandFather();
         Node father = node.getFather();
-        Node greatGrandFather = grandFather.getFather();
 
-        grandFather.right = father.left;
-        father.left = grandFather;
-
-        grandFather.father = father;
-        father.father = greatGrandFather;
-
-        if(greatGrandFather != null){
-            if(greatGrandFather.left == grandFather){
-                greatGrandFather.left = father;
+        if(grandFather != null){
+            if(grandFather.right == father){
+                grandFather.right = father.right;
             } else {
-                greatGrandFather.right = father;
+                grandFather.left = father.right;
             }
-        } else {
-            root = father;
+            node.father = grandFather;
+        }
+
+        father.father = node;
+        father.right = node.left;
+        node.left = father;
+
+        if(root == father){
+            root = node;
+            node.father = null;
         }
     }
 
     private void rightSpin(Node node){
         Node grandFather = node.getGrandFather();
         Node father = node.getFather();
-        Node greatGrandFather = grandFather.getFather();
 
-        grandFather.left = father.right;
-        father.right = grandFather;
-
-        grandFather.father = father;
-        father.father = greatGrandFather;
-
-        if(greatGrandFather != null){
-            if(greatGrandFather.left == grandFather){
-                greatGrandFather.left = father;
+        if(grandFather != null){
+            if(grandFather.left == father){
+                grandFather.left = father.left;
             } else {
-                greatGrandFather.right = father;
+                grandFather.right = father.left;
             }
-        } else {
-            root = father;
-            root.father = null;
+            node.father = grandFather;
+        }
+
+        father.father = node;
+        father.left = node.right;
+        node.right = father;
+
+        if(father == root){
+            root = node;
+            node.father = null;
         }
     }
 
@@ -194,18 +205,20 @@ public class RedBlackTree {
         }
     }
 
+    //50 80 90 100
     public static void main(String[] args) {
         RedBlackTree tree = new RedBlackTree();
-        tree.add(50);
-        tree.add(49);
-        tree.add(48);
-        tree.add(47);
-        tree.add(46);
-        tree.add(45);
-        tree.add(44);
-        tree.add(43);
-        tree.add(42);
-        tree.add(41);
+        tree.add(10);
         tree.add(40);
+        //右左旋
+        tree.add(30);
+        //父亲叔双红变色
+        tree.add(60);
+        //左旋
+        tree.add(90);
+        tree.add(70);
+        tree.add(20);
+        tree.add(50);
+        tree.add(80);
     }
 }
