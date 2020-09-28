@@ -1,7 +1,7 @@
-package test.proxy;
+package javaBase.proxy;
 
 
-import test.proxy.dynamicProxy.TimeHandler;
+import javaBase.proxy.dynamicProxy.TimeHandler;
 
 /**
  * @author guoshoujing

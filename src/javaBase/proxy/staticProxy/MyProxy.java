@@ -1,6 +1,6 @@
-package test.proxy.staticProxy;
+package javaBase.proxy.staticProxy;
 
-import test.proxy.MyInterface;
+import javaBase.proxy.MyInterface;
 
 /**
  * @author guoshoujing

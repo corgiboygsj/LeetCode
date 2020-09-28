@@ -1,4 +1,4 @@
-package test.proxy;
+package javaBase.proxy;
 
 /**
  * @author guoshoujing

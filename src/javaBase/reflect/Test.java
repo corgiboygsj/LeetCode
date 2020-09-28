@@ -1,4 +1,4 @@
-package test.reflect;
+package javaBase.reflect;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;

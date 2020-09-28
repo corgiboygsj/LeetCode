@@ -1,4 +1,4 @@
-package test.exception;
+package javaBase.exception;
 
 import java.io.*;
 import java.util.Objects;
