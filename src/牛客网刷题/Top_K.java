@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * @author guoshoujing
  * @create 2020-12-11 10:17 上午
  */
-public class 最小k个数 {
+public class Top_K {
     public ArrayList<Integer> GetLeastNumbers_Solution(int [] input, int k) {
         int adjustIndex = k / 2;
 
@@ -60,6 +60,6 @@ public class 最小k个数 {
 
     public static void main(String[] args) {
         int[] arr = {6,23,12,52,15,23,22,21,3,10};
-        System.out.println(new 最小k个数().GetLeastNumbers_Solution(arr, 3));
+        System.out.println(new Top_K().GetLeastNumbers_Solution(arr, 3));
     }
 }
