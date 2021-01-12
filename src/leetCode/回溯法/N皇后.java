@@ -24,7 +24,7 @@ import java.util.*;
  *   ".Q.."]
  * ]
  */
-public class 八皇后 {
+public class N皇后 {
     public static List<List<String>> solveNQueens(int n) {
         LinkedList<List<String>> result = new LinkedList<>();
 
