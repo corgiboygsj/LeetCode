@@ -13,6 +13,7 @@ public class ForkTest {
     public static void test(){
         System.out.println("this method is test");
         System.out.println("this method is test new line");
+        System.out.println("a question line by corgiboy-g");
         System.out.println("question line");
     }
 }
