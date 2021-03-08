@@ -7,5 +7,10 @@ package forkTest;
 public class ForkTest {
     public static void main(String[] args) {
         System.out.println("I'm a fork test file");
+        test();
+    }
+
+    public static void test(){
+        System.out.println("this method is test");
     }
 }
