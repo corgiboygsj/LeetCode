@@ -1,10 +1,5 @@
 package javaBase.reflect.field;
 
-import com.alibaba.fastjson.JSON;
-import designPatterns.Singleton;
-
-import java.lang.annotation.Annotation;
-import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 

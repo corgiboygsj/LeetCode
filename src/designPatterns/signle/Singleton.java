@@ -1,4 +1,4 @@
-package designPatterns;
+package designPatterns.signle;
 
 import java.io.*;
 
